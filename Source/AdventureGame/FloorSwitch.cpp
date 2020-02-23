@@ -58,7 +58,7 @@ void AFloorSwitch::Tick(float DeltaTime)
 void AFloorSwitch::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	UE_LOG(LogTemp, Warning, TEXT("PlatformTrigger Overlap Begin"));
-	if (!bCharacterOnSwitch) bCharacterOnSwitch = true;
+	if (!bCharacterOnSwitch) { bCharacterOnSwitch = true; }
 	RaiseDoor();
 	LowerFloorSwitch();
 }
@@ -66,7 +66,7 @@ void AFloorSwitch::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 void AFloorSwitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	UE_LOG(LogTemp, Warning, TEXT("PlatformTrigger Overlap End"));
-	if (!bCharacterOnSwitch) bCharacterOnSwitch = false;
+	if (!bCharacterOnSwitch) { bCharacterOnSwitch = false; }
 	GetWorldTimerManager().SetTimer(SwitchHandle, this, &AFloorSwitch::CloseDoor, SwitchTime);
 }
 
@@ -86,7 +86,7 @@ void AFloorSwitch::UpdateFloorSwitchLocation(float Z)
 
 void AFloorSwitch::CloseDoor()
 {
-	if (!bCharacterOnSwitch)
+	if (bCharacterOnSwitch)
 	{
 		LowerDoor();
 		RaiseFloorSwitch();
