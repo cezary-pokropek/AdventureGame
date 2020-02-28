@@ -12,12 +12,12 @@ void APickup::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 {
 	Super::OnOverlapBegin(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
 
-	UE_LOG(LogTemp, Warning, TEXT("APickup::OnOverlapBegin()"));
+	//UE_LOG(LogTemp, Warning, TEXT("APickup::OnOverlapBegin()"));
 }
 
 void APickup::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	Super::OnOverlapEnd(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex);
 
-	UE_LOG(LogTemp, Warning, TEXT("APickup::OnOverlapEnd()"));
+	//UE_LOG(LogTemp, Warning, TEXT("APickup::OnOverlapEnd()"));
 }
